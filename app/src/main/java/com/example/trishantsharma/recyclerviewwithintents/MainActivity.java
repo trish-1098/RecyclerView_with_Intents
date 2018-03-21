@@ -76,6 +76,10 @@ public class MainActivity extends AppCompatActivity
      */
     @Override
     public void onShareButtonClicked(String msgFromClickedPart, int positionOfClicked) {
+        /*
+            Here the Intent is created using ShareCompat.IntentBuilder class which is used to
+            transfer some type of data with the an intent.
+        */
         Intent share = ShareCompat.IntentBuilder.from(this)
                 .setChooserTitle("Share Message")
                 .setType("text/plain")
@@ -88,6 +92,11 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onListItemClicked(String msg) {
+        /*
+            Here an explicit Intent is being used to open the activity EachItemDescription
+            with a single key value pair of a String with key name being "Message" and value being
+            the msg received. It is received by the EachItemDescription activity.
+         */
         Intent intent = new Intent(MainActivity.this,EachItemDescription.class);
         intent.putExtra("Message",msg);
         if(intent.resolveActivity(getPackageManager())!=null){

@@ -10,12 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
-/**
- * Created by trishantsharma on 21/03/18.
- */
     /*
-        This class is used for creating the ViewHolder objects and setting the data in those
+        The below class is used for creating the ViewHolder objects and setting the data in those
         ViewHolder objects. The ViewHolder object is created after the RecyclerView calls the
         onCreateViewHolder() method which calls the ArrayListItemViewHolder constructor by passing
         the view object(which contains the list_item_view object and the reference to all the child
@@ -49,18 +45,18 @@ import java.util.ArrayList;
      */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ArrayListItemViewHolder> {
 
-    Context context;
+    private Context context;
     private int mNumOfItems;
     private ArrayList<String > stringArrayList;
     private String shareMessage;
     public interface ShareButtonClickListener{
         void onShareButtonClicked(String msgFromClickedPart,int positionOfClicked);
     }
-    ShareButtonClickListener shareButtonClickListener;
+    private ShareButtonClickListener shareButtonClickListener;
     public interface ListItemClickListener{
         void onListItemClicked(String msg);
     }
-    ListItemClickListener listItemClickListener;
+    private ListItemClickListener listItemClickListener;
     public RecyclerViewAdapter(Context context,
                                int mNumOfItems,
                                ShareButtonClickListener shareButtonClickListener,
@@ -72,7 +68,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.listItemClickListener = listItemClickListener;
         this.stringArrayList = stringArrayList;
     }
-    public class ArrayListItemViewHolder extends RecyclerView.ViewHolder{ // implements View.OnClickListener{
+    public class ArrayListItemViewHolder extends RecyclerView.ViewHolder{
 
         private TextView mInformationTextView;
         private Button mInformationShareButton;
@@ -105,18 +101,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 }
             });
         }
-
-        /*@Override
-        public void onClick(View view) {
-            Log.d("onClick: ","List Item Clicked");
-            listItemClickListener.onListItemClicked(mInformationTextView.getText().toString());
-        }*/
     }
     @Override
     public ArrayListItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.recycler_view_list_item,parent,false);
-        ArrayListItemViewHolder arrayListItemViewHolder = new ArrayListItemViewHolder(view);
-        return arrayListItemViewHolder;
+        return new ArrayListItemViewHolder(view);
     }
 
     @Override

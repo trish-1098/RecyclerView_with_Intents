@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- It is the main file containing the RecyclerView layout -->
+
+<!-- NOTE: It is not mandatory to use ConstraintLayout, any known layout
+           like a FrameLayout can also be used -->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
