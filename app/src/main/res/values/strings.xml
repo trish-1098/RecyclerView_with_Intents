@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Recycler View with Intents</string>
+    <string name="share_info">Share Info</string>
+    <string name="with_pos">with positon</string>
+</resources>
